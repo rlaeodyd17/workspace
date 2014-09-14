@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>ex7</title>
+		<style>
+			#car {
+				width:740px;
+				height:240px;
+				background-image:url(img/body.png);
+				/*background-color:skyblue;*/
+				position:fixed;
+				left:50%;
+				top:70%;
+				margin:-120px 0 -0 -370px;
+				animation:bounce 1.3s linear infinite;
+			}
+			
+			@keyframes bounce {
+				0% {transform:translateY(0)}
+				25% {transform:translateY(7px)}
+				50% {transform:translateY(0)}
+				75% {}transform:translateY(-11px)				
+			}
+			
+			.tire {
+				width:106px;
+				height:106px;
+				background-image:url(img/tire.png);
+				background-size:100% 100%;
+				position:absolute;
+				animation-play-state:running;
+				animation:roll .5s linear infinite;
+			}
+			
+			@keyframes roll {
+				from{transform:rotate(0deg)}
+				to{transform:rotate(-360deg)}
+			}
+			
+			.tire:first-child {
+				left:50px;
+				bottom:0;
+				
+			}
+
+			.tire:last-child {
+				right:110px;
+				bottom:0;
+				
+			}
+						
+		</style>
+	</head>
+	<body>
+		<div id="car">
+			<div class="tire"></div>
+			<div class="tire"></div>
+		</div>
+	</body>
+</html>

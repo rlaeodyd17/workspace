@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>ex5</title>
+		<style>
+			@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+			
+			body {
+				margin:0;
+				font-family: 'Hanna', sans-serif;
+			}
+			
+			#wrap {
+				width:1000px;
+				margin:auto;
+			}
+			
+			#wrap>h1 {
+				font-size:70px;
+				font-weight:bold;
+			}
+			
+			#wrap>ol {
+				padding-left: 70px;
+			}
+			
+			#wrap>ol>li {
+				padding-left: 15px;
+				font-size:35px;
+			}
+			
+			#searchBox{
+				margin-top:40px;
+				
+			}
+			
+			#name {
+				width:400px;
+				font-family:'Hanna', serif;
+				font-size:35px;
+			}
+			
+			#inputBtn {
+				font-family:'Hanna',serif;
+				font-size:35px;
+			}			
+			
+		</style>
+		
+	</head>
+	<body>
+		<div id="wrap">
+			<h1>프로야구 팀 순위</h1>
+				<ol>
+					<li>삼성</li>
+					<li>넥센</li>
+					<li>NC</li>
+					<li>LG</li>
+					<li>두산</li>
+					<li>롯데</li>
+					<li>SK</li>
+					<li>KIA</li>
+					<li>한화</li>
+				</ol>
+			<div id="searchBox">
+					<input type="text"
+					placeholder="팀이름 입력"
+					title="팀이름입력란"
+					 id="name"/>
+					<button id="inputBtn">팀순위 검색</button>
+			</div>
+		</div>
+		<script src="js/jquery.js"></script>
+		<script>
+		//이벤트: click
+		//이벤트소스 : button 요소 #inputBtn
+		//이벤트핸들러: click메서드 안의 인자 함수 
+		
+		//객체.val() : getter
+		//인자함수1) --> id가 name인 input요소에서 사용자가 입력한 이름을 입력받습니다.
+			$("#inputBtn").click(function(){
+				 var val = $("#name").val();
+				 //alert(val);
+				
+				 var names = ["삼성","넥센","NC","LG","두산","롯데","SK","KIA","한화"];
+				 
+				 var chksum = true;
+				 
+				 //입력받은 이름 val과 names 배열의 문자열을 비교한 후
+				 //같으면 팀 이름과 배열 index(i=0~8)의 값을 alert창에 출력
+				 
+				 for(var i=0; i<names.length;i++) {
+					 if (val == names[i]) {
+							alert(val+"팀의 순위는 "+(i+1)+"위 입니다.");
+							chksum = true;
+							break;
+						} else {
+							chksum = true;
+							alert("그런 팀 없습니다.");
+							}
+					}
+				});
+		</script>
+	</body>
+</html>

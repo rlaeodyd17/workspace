@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>3_each메서드</title>
+		<style>
+			#box {
+				width:900px;
+				height:100px;
+				text-align: center;
+				background:gold;
+				line-height:100px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>동물리스트</h1>
+		<ul>
+			<li>고양이</li>
+			<li>강아지</li>
+			<li>사자</li>
+			<li>달팽이</li>
+			<li>햄스터</li>
+			<li>토깽이</li>
+			<li>거미</li>
+			<li>개미핥기</li>
+		</ul>
+		<button>갯수</button>
+		<button>이름 전부얻기</button>
+		<div id="box">?????</div>
+		<script src="js/jquery.js"></script>
+		<script>
+			
+			/*
+			 * jquery객체는 wrapper객체입니다.
+			 * 해당요소 여러개를 가지고 있는
+			 * 배열입니다.
+			 * 
+			 */
+			
+			
+			$("button:eq(0)").click(function(){
+				
+				var size = $("li").size();
+				
+				alert("동물"+size+"마리");
+				
+			});
+			
+			$("button:eq(1)").click(function(){
+				
+				//each() 각 요소들에 접근하는
+				//메서드
+				//(for문과 비슷하지만 편리함)
+				
+				$("li").each(function(){
+					//여기서 this가 li요소
+					alert('0번째 동물 : 고양이');
+					
+				});
+				
+				
+			});
+			
+		</script>
+	</body>
+</html>

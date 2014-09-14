@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>ex1</title>
+		<style>
+			
+				@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+			
+			body {
+				font-family: 'Hanna', serif;
+				font-size:40px;
+				margin:0;
+			}
+			
+			#wrap {
+				width:1000px;
+				height:900px;
+				border:1px dashed #333;
+				margin:auto;
+				text-align:center;
+
+			}
+			
+			#header {
+				width:1000px;
+				height:200px;
+				/*background: */ 
+				border-bottom:1px dashed #333;
+				text-align: center; 
+				line-height: 200px;
+			}
+			
+			#content {
+				width:700px;
+				height:500px;
+				border-right:1px dashed #333;
+				float:left;
+				text-align: center; 
+				line-height: 500px;
+			}
+			
+			#sidebar {
+				width:290px;
+				min-height:500px;
+				float:left;
+				text-align: center; 
+				line-height: 500px;
+			}
+			
+			#footer {
+				width:1000px;
+				height:200px;
+				/*float 영역 clear */
+				clear:both;
+				/*background:green;*/
+				text-align: center; 
+				line-height: 200px;
+				border-top:1px dashed #333;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="header">헤더영역</div>
+			<div id="content">콘텐트 영역</div>
+			<div id="sidebar">사이드바</div>
+			<div id="footer">&copy;2014 rpm.com</div>
+		</div>
+	</body>
+</html>

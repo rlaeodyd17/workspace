@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>ex5</title>
+		<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumpenscript.css" />
+		<style>
+			
+			body,input,button {
+				
+				font-family: 'Nanum pen script', serif;
+			}
+			
+			body {
+				margin:0;
+			}
+			
+			#wrap {
+				width:480px;
+				margin:0 auto;
+				background: #ddd;
+				overflow: hidden;
+				padding-left:20px;
+			}
+			
+			#wrap ol {
+				font-size:30px;
+			}
+			
+			/* 선택자 동시 적용시, (#wrap input, #wrap button) 주의 */
+			#wrap input, #wrap button {
+				font-size:25px;
+				padding:5px;
+			}
+			
+			#wrap input {
+				width : 280px;
+			}
+			
+			#wrap button {
+				cursor:pointer;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="wrap">
+			<h1>프로야구 팀 순위</h1>
+			<ol>
+				<li>삼성</li>
+				<li>넥센</li>
+				<li>NC</li>
+				<li>LG</li>
+				<li>SK</li>
+				<li>두산</li>
+				<li>롯데</li>
+				<li>KIA</li>
+				<li>한화</li>
+			</ol>
+			<p>
+				<input type='text' value="dsjklfaj"/>
+				<button>팀순위 검색</button>
+			</p>			
+		</div>
+		<script src="js/jquery.js"></script>
+		<script>
+			/*jquery객체를 1번만 생성하고 그것을 암시적 객체생성처럼 사용하므로
+			 * speed나 performance 측면에서 훨씬 효율적이다 
+			 * $("input")을 여러번 쓰는 것은 객체생성 등의 리소스 낭비*/
+			var $input = $("input");
+			
+			var $btn = $("button");
+			
+			var $li = $("li");
+			
+			//포커스 지정
+			$input.focus();
+			
+			//input요소에 엔터 이벤트
+			$input.keydown(function(e){
+				//alert("test");
+				//여기서 과연 우리가 어떻게 유저가 누른 버튼을 알 수 있을까요?
+				
+				//이벤트객체 : 좌표,키보드버튼 등의 정보를 가지고 있습니다.
+				
+				//evt : 이벤트객체
+				
+				if(e.keyCode==13) {
+					checkTeam();
+				}
+				
+			});
+			
+			
+			//버튼을 클릭했을 때
+			$btn.click(checkTeam);
+			
+			//팀순위를 확인하는 함수
+			function checkTeam(){
+				//alert("클릭 or 엔터!");
+				
+				//유저가 input에서 입력한 글자를 받아옵니다.
+				//trim() input에서 의미없는 빈 공백 제거시켜 준다.
+				//toUpperCase() input의 문자를 무조건 대문자로 변경
+				var team = $input.val().trim().toUpperCase();
+				
+				//alert(team);				
+				
+ 				if(team.length ==0) {
+ 					//alert("팀 이름을 넣어주세요~");
+ 					
+ 					$input.focus();
+ 					
+ 					return;
+ 				}
+				
+				//각각의 li요소들을 호출 
+				
+				var msg = "그런팀 없습니다.";
+				
+				//each는 인자로 index를 사용할 수 있다. 
+				$li.each(function(index){
+					//alert("test");
+					
+					//그 요소를 
+					var tmpTeam = $(this).text();
+					
+					//alert(tmpTeam);
+					
+					if(tmpTeam == team) {
+						msg =team+"팀의 순위는 "+(index+1)+"위 입니다.";
+					}
+				});
+				alert(msg);
+			}
+			 
+			
+			
+		</script>
+		
+	</body>
+</html>

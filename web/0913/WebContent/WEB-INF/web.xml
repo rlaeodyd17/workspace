@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>0913</display-name>
+  
+	<!-- sevlet과 url mapping 설정 -->
+	<servlet>
+		<servlet-name>xxx</servlet-name>
+		<servlet-class>servlet.MyServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>xxx</servlet-name>
+		<url-pattern>myservlet.rpm</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Prob17</servlet-name>
+		<servlet-class>servlet.SelectGenreServlet</servlet-class>
+	</servlet>
+	
+	<!-- 위의 서블릿과 클라이언트에서 요청할 주소 mapping 설정 -->
+	<servlet-mapping>
+		<servlet-name>Prob17</servlet-name>
+		<url-pattern>/prob17.rpm</url-pattern>
+	</servlet-mapping>
+	
+
+</web-app>

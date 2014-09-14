@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>ex6</title>
+		<link href='http://fonts.googleapis.com/css?family=Coustard' rel='stylesheet' type='text/css'>
+		<style>
+			body {
+				text-align:center;
+				
+			}
+			
+			h1 {
+				font-size:70px;
+				font-weight:bold;
+				font-family: 'Coustard', serif;
+				color:skyblue;
+				
+			}
+			
+			#timer {
+				font-size:150px;
+				font-weight:bold;
+				font-family: 'Coustard', serif;
+				color:skyblue;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Timer</h1>
+		<div id="timer">5:00</div>
+		<script src="js/jquery.js"></script>
+		<script>
+			
+			//분을 의미하는 변수
+			var min = 4;
+			//초를 의미하는 변수
+			var sec = 04;
+			
+			var $timer = $("#timer"); //두번이상 호출된다면 변수로 치환해서 사용한다.
+			
+			var interval = setInterval(function(){   
+				//1.setInterval(함수,시간) 시간 1초로 세팅
+				//2.함수는 시간=분+초의 단위로 변수 선언 뒤 합산
+				//3.초가 0과 같거나 59
+				 
+				
+				//alert("test");
+				
+				//초가 10보다 작으면 0을 붙여준다
+				if(sec<10){
+					sec = "0"+sec;
+				}
+				
+				var time = min +":"+sec;
+				
+				
+				$timer.text(time);
+				
+				//만약 분과 초가 모두 0이면 interval 종료
+				if(min==0 && sec==0){
+					
+					//interval 종료 ClearInterval() 함수
+					clearInterval(interval);
+					
+					alert("Timer finished!");
+				}
+				
+				//초가 0과 같거나 작으면 다시 59초로
+				//분을 감소시키고 다시 59초뢰
+				if(sec <= 0){
+					//alert("00000");
+					sec = 59;
+					--min;
+				}else{
+					//0보다 크다면 감소
+					--sec;
+				}
+				
+			},1000);
+			
+		</script>
+		
+	</body>
+</html>

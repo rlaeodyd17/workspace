@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>2_carlist</title>
+  <!-- font awesome -->
+  <link rel="stylesheet" 
+  href="css/font-awesome.min.css" />
+  <style>
+  	@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+  	
+  	body {
+  		font-family: 'Jeju Gothic', sans-serif;
+  		margin:0;
+  	}
+  	
+  	
+  	#wrap {
+  		width:960px;
+  		border:1px solid #999;
+  		margin:auto;
+  	}
+  	
+  	#wrap h2 {
+  		font-size:40px;
+  		text-align: center;
+  	}
+  	
+  	#wrap ul {
+  		margin:0;
+  		margin-bottom:20px;
+  		padding:0;
+  		list-style: none;
+  	}
+  	
+  	/*
+  	 * float된 li의 크기를 인식하는 방법
+  	 */
+  	#wrap ul::after {
+  		content:"";
+  		display: block;
+  		clear: both;
+  	}
+  	
+  	#wrap li {
+  		width:280px;
+  		height:210px;
+  		float: left;
+  		cursor: pointer;
+  		opacity: .5;
+  		border:10px solid transparent;
+  		transition:.2s ease;
+  		margin-left:15px;
+  		margin-bottom:15px;
+  		position: relative;
+  		overflow: hidden;
+  		transform:scale(1);
+  	}
+  	
+  	#wrap li:hover {
+  		opacity: 1;
+  		border-color:#333;
+  		transform:scale(1.1);
+  	}
+  	
+  	#wrap li>img {
+  		width:280px;
+  		height:210px;
+  		position:absolute;
+  		left:0;
+  		top:0;
+  		transition:.2s cubic-bezier(.29,-0.5,.75,1.74);
+  	}
+  	
+  	#wrap li:hover>img {
+  		width:400px;
+  		height:300px;
+  		left:-60px;
+  		top:-45px;
+  	}
+  	
+  	#wrap li>span {
+  		position: absolute;
+  		bottom:-50px;
+  		left:0;
+  		color:#fff;
+  		text-shadow:1px 1px 1px #000;
+  		text-align: center;
+  		width:280px;
+  		height:50px;
+  		background:rgba(0,0,0,.3);
+  		font-size:20px;
+  		line-height:50px; 
+  		transition:.2s cubic-bezier(.07,.31,.75,1.74);
+  	}
+  	
+  	#wrap li:hover>span {
+  		bottom:0;
+  	}
+  	
+  	#bg {
+  		position: fixed;
+  		width:100%;
+  		height:100%;
+  		left:0;
+  		top:0;
+  		background: rgba(0,0,0,.7);
+  		display: none;
+  	}
+  	
+  	#popup {
+  		width:800px;
+  		height:600px;
+  		background:url(img/5.jpg);
+  		position: fixed;
+  		left:50%;
+  		margin-left:-410px;
+  		top:50%;
+  		margin-top:-310px;
+  		border:20px solid #fff;
+  		box-shadow:0 0 10px #fff;
+  	}
+  	
+  	
+  </style>
+</head>
+<body>
+	<div id="wrap">
+		<h2><i class="fa fa-dashboard"></i> 자동차 목록</h2>
+		<ul>
+			<li>
+				<img src="img/0.jpg" alt="AUDI R8"/>
+				<span>AUDI R8</span>
+			</li>
+			<li>
+				<img src="img/1.jpg" alt="BMW M3" />
+				<span>BMW M3</span>
+			</li>
+			<li>
+				<img src="img/2.jpg" alt="BENZ S600" />
+				<span>BENZ S600</span>
+			</li>
+			<li>
+				<img src="img/3.jpg" alt="Chevrolet-Corvette" />
+				<span>Chevrolet-Corvette</span>
+			</li>
+			<li>
+				<img src="img/4.jpg" alt="Ferrari-LaFerrari" />
+				<span>Ferrari-LaFerrari</span>
+			</li>
+			<li>
+				<img src="img/5.jpg" alt="Hyundai-Genesis" />
+				<span>Hyundai-Genesis</span>
+			</li>
+			<li>
+				<img src="img/6.jpg" alt="Lamborghini-Veneno" />
+				<span>Lamborghini-Veneno</span>
+			</li>
+			<li>
+				<img src="img/7.jpg" alt="Fiat-500" />
+				<span>Fiat-500</span>
+			</li>
+			<li>
+				<img src="img/8.jpg" alt="Singer-911" />
+				<span>Singer-911</span>
+			</li>
+		</ul>
+	</div>
+	<!-- 반투명 -->
+	<div id="bg">
+		<!-- 자동차 이미지 크게 -->
+		<div id="popup"></div>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script>
+		//이벤트 : click
+		//이벤트소스(이벤트가 발생되는 장소)
+		// li요소들
+		
+		$("#wrap li").click(function(){
+			
+			//bg와 popup을 보여줍니다.
+			$("#bg").fadeIn(500);
+			
+			//우리가 클릭한 요소의 index
+			var index = $(this).index();
+			
+			//alert(index);
+			
+			
+			$("#popup").css("background","url(img/"+index+".jpg)");
+			//popup의 뒷배경이미지를 변경
+			
+			
+		});
+		
+		$("#bg,#popup").click(function(){
+			$("#bg").fadeOut(500);
+		});
+		
+	</script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>ex3</title>
+		<style>
+			
+			html {
+				height:100%; /*html과 body의 높이 모두를 적용해서 빈 공간이 생기지 않게한다.*/
+			}
+			
+			body {
+				margin:0;
+				height:100%;
+				background-image: url(img/bg_intro_1_1.jpg);
+				background-size:cover;
+				background-position:center;
+				/*background-repeat:no-repeat;*/
+			}
+			
+			#introTxt {
+				width:500px;
+				height:250px;
+				/*background:skyblue;*/
+				position:fixed;  /*스크로롤이 생기므로 h1의 CSS제거  */
+				left:50%;
+				top:50%;
+				margin-left:-250px;
+				margin-top:-125px;
+			}
+			
+			/* 미디어쿼리 반응형 웹 */
+			
+			@media screen and (max-width:500px) {
+				body {
+					background: pink;
+				}
+			}
+			
+			/*
+			 * CSS에서의 반복문은 클래스를 적용한다
+			 * 따라서, h1,p요소에 동시에 적용된 이미지대치 기법을 클래스로 아래와 같이 사용할 수 있다. 
+			 * 
+			 */
+			 .ir {
+					text-indent:-99999px;
+					overflow:hidden;			 	
+			 }
+			
+			/*
+			 * 인라인레벨(h1,p)의 가운데 정렬
+			 * 1) 각각의 요소에 margin을 auto로 세팅
+			 * 2) h1요소에 margin-top, margin-bottom 10px을 적용하면 박스모델까지 가운데 정렬
+			 * 
+			 */
+			
+			#introTxt h1 {
+				margin:10px auto;
+				width:474px;
+				height:174px;
+				background:url(img/intro_band.png);
+				
+			}
+			
+			#introTxt p {
+				width:405px;
+				height:45px;
+				background:url(img/intro_1_1.png);
+				margin:auto;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="introTxt">
+			<!--이미지 대치 기법으로 h1,p 요소 대치 -->
+			<h1 class="ir">band</h1>
+			<p class="ir">글로벌 no.1 모임앱</p>
+		</div>
+		<script src="js/jquery.js"></script>
+		<script>
+			//setTimeout 한번만
+			//setInterval 계속
+			
+			var idx =1;
+			
+			setInterval(function(){
+				
+				if(idx == 5){
+					idx=0;
+				}
+				
+				$("body").css("background-image","url(img/bg_intro_1_"+ ++idx+".jpg)");
+				
+			},2000);
+			
+			
+			
+		</script>
+		
+	</body>
+</html>
